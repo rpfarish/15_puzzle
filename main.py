@@ -1,10 +1,6 @@
-"""
-15 puzzle
+"""15 puzzle"""
 
-"""
 from random import randint
-import tkinter
-# todo timer and move count and mps
 
 class Puzzle:
     def __init__(self, board=None, srow=3, scol=3):
@@ -17,7 +13,6 @@ class Puzzle:
         self.row = srow
         self.col = scol
         self.moves = 0
-        # super(Puzzle, self).__init__()
         self.is_scrambling = False
 
     def print_board(self):
@@ -35,6 +30,7 @@ class Puzzle:
             self.row -= 1
             if not self.is_scrambling:
                 self.print_board()
+        
 
     def left(self):
         if self.row < 3:
@@ -74,27 +70,26 @@ class Puzzle:
             self.print_board()
 
 
-dude = Puzzle()
-dude.print_board()
+puzzle = Puzzle()
+puzzle.print_board()
 
-dude.scramble()
-print('end')
-dude.right()
-dude.up()
-while dude.board != dude.start:
+puzzle.scramble()
+print('Scrambled')
+
+while puzzle.board != puzzle.start:
     move = input('Enter your move: ')
     if move == 'd':
-        dude.right()
-        dude.moves += 1
+        puzzle.right()
+        puzzle.moves += 1
     if move == 'a':
-        dude.left()
-        dude.moves += 1
+        puzzle.left()
+        puzzle.moves += 1
     if move == 'w':
-        dude.up()
-        dude.moves += 1
+        puzzle.up()
+        puzzle.moves += 1
     if move == 's':
-        dude.down()
-        dude.moves += 1
+        puzzle.down()
+        puzzle.moves += 1
 
-print('you win!'.title())
-print('Total number of moves'.title(), dude.moves)
+print('You Win!')
+print('Total Number of Moves', puzzle.moves)
